@@ -1,0 +1,14 @@
+h1, h2{
+    color:#0b5394;
+    font-family: Arial, sans-serif
+}
+
+h3{
+    color:#0b5394;
+    font-style:italic;
+    font-family: Georgia;
+}
+
+p, ul{
+    font-family:Georgia
+}
