@@ -61,6 +61,8 @@ np.load(file_npy, allow_pickle=True)</code></pre>
     <p>Embellir ses graphes : colorbar, légendes, matplotlib.pyplot. </p>
     <p>Colorbar pour une cmap discrete (avec valeurs uniques). Exemple avec le produit SWS de Copernicus, 110 = pixel de neige humide
     <pre><code class="language-python">from matplotlib.colors import ListedColormap, BoundaryNorm, LinearSegmentedColormap
+from mpl_toolkits.axes_grid1 import make_axes_locatable
+
 bounds_sws = [110, 125, 200, 210, 220, 230, 240, 255, 256]
 tick_clb_sws = [(bounds_sws[i]+bounds_sws[i+1])/2 for i in range(len(bounds_sws)-1)] # pour avoir des labels centrés sur la valeur du pixel
 tick_label_clb_sws = ['wet snow', 'dry snow \nno snow \npatchy snow', 'distorsions',
@@ -70,8 +72,11 @@ cmap_sws = ListedColormap(color_sws)
 norm_sws = BoundaryNorm(bounds_sws, cmap_sws.N)
 
 fig, ax = plt.subplots(1,1, figsize=(8,5))
-cax = ax.imshow(image_sws, cmap=cmap_sws, norm=norm_sws, interpolation=None)
-cbar = fig.colorbar(cax, ticks=tick_clb_sws,)
+im = ax.imshow(image_sws, cmap=cmap_sws, norm=norm_sws, interpolation=None)
+div = make_axes_locatable(ax)
+cax = div.append_axes("right", size = "5%", pad = 0.05)  # size = largeur de la colorbar, pad = espace entre la fig et la colorbar
+cbar = fig.colorbar(im, ticks=tick_clb_sws, cax = cax)
+cbar = fig.colorbar(im, ticks=tick_clb_sws,)
 cbar.ax.set_yticklabels(tick_label_clb_sws)
 cbar.ax.minorticks_off()
 plt.setp(cbar.ax.get_yticklabels(), va='center')
