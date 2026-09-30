@@ -1,0 +1,28 @@
+h1, h2{
+    color:#0b5394;
+    font-family: Georgia;
+    background: #f5f2f0
+}
+
+h3{
+    color:#0b5394;
+    font-family: Georgia;
+}
+
+
+p, ul{
+    font-family:Georgia
+}
+
+.formation_type{
+    color:#0b5394;
+    font-weight: bold;
+    font-family: Georgia;
+}
+
+.formation_titre{
+    color:black;
+    font-weight: bold;
+    font-family: Georgia;
+}
+
