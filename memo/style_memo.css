@@ -1,7 +1,16 @@
-h1, h2{
+body{
+    margin: 0 30px;
+}
+
+h1{
     color:#0b5394;
     font-family: Georgia;
     background: #f5f2f0
+}
+
+h2{
+    color:#0b5394;
+    font-family: Georgia;
 }
 
 h3{
@@ -9,20 +18,16 @@ h3{
     font-family: Georgia;
 }
 
+nav{
+    border-width: 5px 1px;
+    border-color: white;
+    
+}
 
 p, ul{
     font-family:Georgia
 }
 
-.formation_type{
+.type_cmd{
     color:#0b5394;
-    font-weight: bold;
-    font-family: Georgia;
 }
-
-.formation_titre{
-    color:black;
-    font-weight: bold;
-    font-family: Georgia;
-}
-

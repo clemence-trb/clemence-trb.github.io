@@ -1,6 +1,14 @@
+body{
+    margin: 0 30px;
+}
+
 h1, h2{
     color:#0b5394;
     font-family: Arial, sans-serif
+}
+
+*:focus{
+    outline: solid 3px #0b5394;
 }
 
 h3{

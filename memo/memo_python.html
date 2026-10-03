@@ -4,19 +4,25 @@
     <head>
 
         <meta charset="utf-8">
+        <link rel="icon" href="favicon.png" type="image/x-icon">
         <title>Mémo</title>
         <link href="prism.css" rel="stylesheet">
-        <link href="style.css" rel="stylesheet">
+        <link href="style_memo.css" rel="stylesheet">
 
     </head>
 
 <body>
+    
     <h1>Lignes de code pour l'exploitation d'images satellites</h1>
-    <p><b>En cours de construction</b></p>
-    <p>Cette page répertorie les lignes de code Python, Bash utilisées régulièrement pour exploiter et analyser des images satellites ou produits satellitaires. Elle a été principalement élaborée pendant ma thèse. Toute remarque constructive est la bienvenue :)
+    <nav>Python GDAL</nav>
 
+    <p><strong>En cours de construction</strong>
+    <br>Cette page répertorie les lignes de code Python, Bash utilisées régulièrement pour exploiter et analyser des images satellites ou produits satellitaires. Elle a été principalement élaborée pendant ma thèse. 
+    <br>Toute remarque constructive est la bienvenue :)
     </p>
-    <h3>Python</h3>
+
+    <h2>Python</h2>
+
     <p>Découper un raster avec un shapefile : (donne un np.ma, cf plus bas)
     <pre><code class="language-python">import fiona
 import rasterio
@@ -85,8 +91,10 @@ plt.tight_layout()
 plt.show()</code></pre>
     </p>
 
+    <hr>
 
-    <h3> GDAL </h3>
+    <h2> GDAL </h2>
+
     <p>La documentation est <a href="https://gdal.org/en/stable/user/cookbook.html#id1">ici</a>. Commande très utile : gdalinfo</p>
     
     <p>Ajouter -overwrite pour écraser les fichiers existants, -q si on ne veut pas que les messages automatiques de GDAL s'affichent.
@@ -131,21 +139,6 @@ new_data = data.assign(name_new_var=data_var)
 new_data['name_new_var'].attrs =  {"units": "??", '_FillValue': 1.e+20,
                                 "long_name": "short description"}
 new_data.to_netcdf(file_save, 'a')</code></pre>     </p>
-    
-    <h2>Infos utiles</h2>
-
-    <h3>Visualisation rapide</h3>
-    <p>Dataspace Copernicus : <a href="https://browser.dataspace.copernicus.eu/">https://browser.dataspace.copernicus.eu/</a></p>
-
-    <h3>Accès aux produits Copernicus HR-WSI: </h3>
-    <p>Depuis le serveur S3, API Odata du CDSE : <a href="https://github.com/eea/clms-hrwsi-api-client-python">https://github.com/eea/clms-hrwsi-api-client-python</a></p>
-    <p>Avec l'API HDA de Wekeo, pour écrire la requeête en python, aller sur le site de visu <a href="https://data.wekeo.copernicus.eu/data?view=viewer&objects=W10%3D&layers=eyJjMyI6eyJpZCI6ImMzIiwib3BlbkRyYXdlck5hbWUiOiJzdWJzZXR0ZXIiLCJyZXBsYWNlbWVudENvbG9yTWFwSWQiOm51bGwsInZhbHVlTWluIjpudWxsLCJ2YWx1ZU1heCI6bnVsbCwibGF5ZXJJZCI6IkVPOk1POkRBVDpHTE9CQUxfQU5BTFlTSVNGT1JFQ0FTVF9QSFlfMDAxXzAyNC9jbWVtc19tb2RfZ2xvX3BoeS1zb19hbmZjXzAuMDgzZGVnX1AxRC1tXzIwMjQwNi9zbyIsInpJbmRleCI6MTAsImxvZ1NjYWxlIjpmYWxzZSwiaXNIaWRkZW4iOnRydWUsImlzSW5pdGlhbCI6dHJ1ZSwiaXNWaWV3YWJsZSI6dHJ1ZSwidGltZSI6MTc5MDI5NDQwMDAwMCwiZWxldmF0aW9uIjotMC40OTQwMjQ5OTE5ODkxMzU3NCwiaXNSZXBsYWNpbmciOmZhbHNlfSwiYzQiOnsiaWQiOiJjNCIsIm9wZW5EcmF3ZXJOYW1lIjpudWxsLCJyZXBsYWNlbWVudENvbG9yTWFwSWQiOm51bGwsInZhbHVlTWluIjpudWxsLCJ2YWx1ZU1heCI6bnVsbCwibGF5ZXJJZCI6IkVPOkpSQzpEQVQ6Q0xNUy9fX0RFRkFVTFRfXy9fX0RFRkFVTFRfXyIsInpJbmRleCI6MjAsImlzSW5pdGlhbCI6dHJ1ZSwiaXNWaWV3YWJsZSI6ZmFsc2UsImlzUmVwbGFjaW5nIjpmYWxzZX0sImM1Ijp7ImlkIjoiYzUiLCJvcGVuRHJhd2VyTmFtZSI6InN1YnNldHRlciIsInJlcGxhY2VtZW50Q29sb3JNYXBJZCI6bnVsbCwidmFsdWVNaW4iOm51bGwsInZhbHVlTWF4IjpudWxsLCJsYXllcklkIjoiRU86Q0xNUzpEQVQ6U1dTX0VVUk9QRV9ISUdIX01PVU5UQUlOU182ME1fREFJTFlfVjIvX19ERUZBVUxUX18vX19ERUZBVUxUX18iLCJ6SW5kZXgiOjMwLCJpc0luaXRpYWwiOnRydWUsImlzVmlld2FibGUiOmZhbHNlLCJpc1JlcGxhY2luZyI6ZmFsc2V9fQ%3D%3D">Wekeo Data Viewer</a>
-        Et cliquer sur l'icone téléchargement.
-        <a href="https://hda.readthedocs.io/en/latest/usage.html"> https://hda.readthedocs.io/en/latest/usage.html</a></p>
-    <h3>Réanalyses ERA5: </h3>
-    <p>API: <a href="https://github.com/ecmwf/cdsapi">https://github.com/ecmwf/cdsapi</a></p>
-
-
 
     <script src="prism.js"></script>
 
